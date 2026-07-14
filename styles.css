@@ -1,0 +1,61 @@
+import React, { useEffect, useState } from 'react';
+import Layout from './components/Layout';
+import Home from './pages/Home';
+import Clothing from './pages/Clothing';
+import Vacation from './pages/Vacation';
+import Transport from './pages/Transport';
+import Housing from './pages/Housing';
+import Contact from './pages/Contact';
+import { getWorkerByToken } from './services/api';
+import Onboarding from './pages/Onboarding';
+import PersonalQuestionnaire from './pages/PersonalQuestionnaire';
+import BankAccount from './pages/BankAccount';
+import Confidentiality from './pages/Confidentiality';
+import ZusStatement from './pages/ZusStatement';
+import PpkResignation from './pages/PpkResignation';
+import DocumentChecklist from './pages/DocumentChecklist';
+
+
+const TITLES = {
+  home: 'Portal pracownika',
+  onboarding: 'Dokumenty zatrudnienia',
+  personal: 'Kwestionariusz osobowy',
+  bank: 'Konto bankowe',
+  zus: 'Oświadczenie do celów ZUS',
+  confidentiality: 'Oświadczenie o poufności',
+  ppk: 'Rezygnacja z PPK',
+  checklist: 'Checklista dokumentów',
+  clothing: 'Odzież i wyposażenie',
+  vacation: 'Wniosek o urlop',
+  transport: 'Transport do pracy',
+  housing: 'Zakwaterowanie',
+  contact: 'Kontakt z koordynatorem',
+};
+
+export default function App() {
+  const [page, setPage] = useState('home');
+  const [worker, setWorker] = useState(null);
+
+  useEffect(() => {
+    const token = new URLSearchParams(window.location.search).get('token') || '';
+    getWorkerByToken(token).then(setWorker);
+  }, []);
+
+  const content = {
+    home: <Home worker={worker} openPage={setPage}/>,
+    onboarding: <Onboarding openPage={setPage}/>,
+    personal: <PersonalQuestionnaire/>,
+    bank: <BankAccount/>,
+    zus: <ZusStatement/>,
+    confidentiality: <Confidentiality/>,
+    ppk: <PpkResignation/>,
+    checklist: <DocumentChecklist/>,
+    clothing: <Clothing worker={worker}/>,
+    vacation: <Vacation worker={worker}/>,
+    transport: <Transport worker={worker}/>,
+    housing: <Housing worker={worker}/>,
+    contact: <Contact worker={worker}/>,
+  }[page];
+
+  return <Layout title={TITLES[page]} onHome={()=>setPage('home')}>{content}</Layout>;
+}
