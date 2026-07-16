@@ -36,8 +36,12 @@ export default function DocumentPhotos(){
 
  async function choose(id,file){
   if(!file)return;
-  try{setFiles(v=>({...v,[id]:await prepare(file)}))}
-  catch(e){alert(e.message||'Nie udało się odczytać pliku.')}
+  try{
+   const preparedFile = await prepare(file);
+   setFiles(v=>({...v,[id]:preparedFile}));
+  }catch(e){
+   alert(e.message||'Nie udało się odczytać pliku.');
+  }
  }
  async function send(){
   const missing=TYPES.filter(x=>x.required&&!files[x.id]);
