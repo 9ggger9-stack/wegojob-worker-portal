@@ -29,3 +29,4 @@
 .status-top{display:flex;justify-content:space-between;align-items:center}.progress-value{font-size:34px;font-weight:900;margin-top:5px}.status-ready,.status-process{font-size:12px;font-weight:900;padding:8px 10px;border-radius:999px}.status-ready{background:#e6f8eb;color:#18733a}.status-process{background:#fff2d8;color:#8a5b00}
 .progress-track{height:12px;background:#eceff2;border-radius:999px;overflow:hidden;margin:14px 0}.progress-track>div{height:100%;background:#d71920}.employee-data{display:grid;grid-template-columns:1fr 1fr;gap:0 18px}
 @media(max-width:620px){.topbar-inner{grid-template-columns:90px 1fr 20px}.back-button{font-size:13px;padding:9px}.employee-data{grid-template-columns:1fr}}
+textarea{width:100%;box-sizing:border-box;resize:vertical;font:inherit;padding:11px;border:1px solid #cfd3d8;border-radius:9px;background:#fff}

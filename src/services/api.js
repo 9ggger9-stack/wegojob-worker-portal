@@ -36,3 +36,7 @@ export async function submitDocument(payload) {
 export function getWebhookUrl() {
   return WEBHOOK_URL;
 }
+
+export async function sendToMake(payload) {
+  return submitDocument(payload);
+}
