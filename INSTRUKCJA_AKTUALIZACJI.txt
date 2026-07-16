@@ -1,0 +1,32 @@
+WEGOJOB PORTAL V3 — CZYSTY PROJEKT
+
+Ten pakiet jest przygotowany do GitHub Desktop i Netlify.
+
+W środku są:
+- src — kod portalu,
+- package.json,
+- index.html,
+- netlify.toml,
+- .npmrc,
+- .nvmrc,
+- .gitignore.
+
+Nie ma:
+- node_modules,
+- dist.
+
+AKTUALIZACJA REPOZYTORIUM:
+1. GitHub Desktop → Repository → Show in Explorer.
+2. W folderze repozytorium usuń wszystkie stare pliki, ale nie usuwaj ukrytego folderu .git.
+3. Skopiuj do niego WYŁĄCZNIE zawartość tej rozpakowanej paczki.
+4. Wróć do GitHub Desktop.
+5. Summary: Clean portal v3.
+6. Commit to main.
+7. Push origin.
+8. Netlify automatycznie uruchomi nowy deploy.
+
+WAŻNE:
+- Nie kopiuj node_modules.
+- Nie kopiuj dist.
+- Nie uruchamiaj npm install wewnątrz folderu przed wysłaniem do GitHub, jeśli nie jest to potrzebne.
+- Główny portal Netlify: golden-biscuit-594504.
