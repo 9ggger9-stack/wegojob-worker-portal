@@ -1,0 +1,13 @@
+WEGOJOB PORTAL V4 — INSTALACJA
+
+1. GitHub Desktop → Repository → Show in Explorer.
+2. Usuń całą widoczną zawartość repozytorium. Nie usuwaj ukrytego folderu .git.
+3. Skopiuj do repozytorium cały WNĘTRZNY zestaw plików z tej paczki.
+4. GitHub Desktop: Summary = Portal v4 complete.
+5. Commit to main.
+6. Push origin.
+7. Netlify: golden-biscuit-594504 → Deploys.
+8. Poczekaj na Published.
+9. Otwórz stronę i wykonaj Ctrl+F5.
+
+Nie kopiuj node_modules ani dist. W tej paczce ich nie ma.

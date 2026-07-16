@@ -17,3 +17,15 @@
 .file-status{display:flex;justify-content:space-between;align-items:center;gap:10px;font-size:13px;color:#246b3b;margin-top:10px}
 .file-status button{border:0;background:transparent;color:#b31319;font-weight:700;cursor:pointer}
 .btn:disabled{opacity:.6;cursor:wait}
+
+.topbar-inner{max-width:900px;margin:auto;display:grid;grid-template-columns:110px 1fr 110px;align-items:center;padding:0 10px}
+.brand-button{justify-self:center}.back-button{border:0;background:#f0f1f3;border-radius:9px;padding:10px 12px;font-weight:800}
+.completion{font-size:20px;color:#278343;font-weight:900}.upload-list{display:grid;gap:14px;margin-top:16px}
+.upload-card{border:1px solid #e4e7eb;border-radius:14px;padding:14px;background:#fafafa}.upload-head{display:flex;justify-content:space-between;gap:10px}
+.required-badge,.optional-badge{font-size:10px;font-weight:800;padding:5px 7px;border-radius:999px}.required-badge{background:#ffe6e6;color:#9e1117}.optional-badge{background:#eceff2;color:#59616b}
+.document-preview{width:100%;max-height:340px;object-fit:contain;border:1px solid #ddd;border-radius:10px;margin:10px 0;background:#fff}
+.file-button{display:block;text-align:center;background:#eceff2;border-radius:10px;padding:12px;cursor:pointer}.file-button input{display:none}
+.file-status{display:flex;justify-content:space-between;gap:10px;color:#246b3b;margin-top:10px}.file-status button{border:0;background:transparent;color:#b31319;font-weight:700}
+.status-top{display:flex;justify-content:space-between;align-items:center}.progress-value{font-size:34px;font-weight:900;margin-top:5px}.status-ready,.status-process{font-size:12px;font-weight:900;padding:8px 10px;border-radius:999px}.status-ready{background:#e6f8eb;color:#18733a}.status-process{background:#fff2d8;color:#8a5b00}
+.progress-track{height:12px;background:#eceff2;border-radius:999px;overflow:hidden;margin:14px 0}.progress-track>div{height:100%;background:#d71920}.employee-data{display:grid;grid-template-columns:1fr 1fr;gap:0 18px}
+@media(max-width:620px){.topbar-inner{grid-template-columns:90px 1fr 20px}.back-button{font-size:13px;padding:9px}.employee-data{grid-template-columns:1fr}}

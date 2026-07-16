@@ -1,21 +1,38 @@
 const WEBHOOK_URL = 'https://hook.eu1.make.com/9etmr2ajqqi1jea3jgz0ow1ctlbgjiw2';
 
-export async function sendToMake(payload) {
-  let response;
+export async function submitDocument(payload) {
+  const controller = new AbortController();
+  const timeout = setTimeout(() => controller.abort(), 45000);
+
   try {
-    response = await fetch(WEBHOOK_URL, {
+    const response = await fetch(WEBHOOK_URL, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(payload),
+      body: JSON.stringify({
+        source: 'WeGoJob Portal v4',
+        submittedAt: new Date().toISOString(),
+        ...payload,
+      }),
+      signal: controller.signal,
     });
+
+    if (!response.ok) {
+      throw new Error(`Make HTTP ${response.status}`);
+    }
+
+    let data = {};
+    try { data = await response.json(); } catch {}
+    return { ok: true, ...data };
   } catch (error) {
-    throw new Error(`Brak połączenia z Make: ${error?.message || 'network error'}`);
+    if (error?.name === 'AbortError') {
+      throw new Error('Przekroczono czas wysyłania. Spróbuj ponownie.');
+    }
+    throw error;
+  } finally {
+    clearTimeout(timeout);
   }
+}
 
-  if (!response.ok) {
-    const details = await response.text().catch(() => '');
-    throw new Error(`Make HTTP ${response.status}${details ? `: ${details.slice(0, 160)}` : ''}`);
-  }
-
-  return { ok: true };
+export function getWebhookUrl() {
+  return WEBHOOK_URL;
 }

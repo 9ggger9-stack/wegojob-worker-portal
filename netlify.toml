@@ -6,3 +6,8 @@
   NODE_VERSION = "20"
   NPM_CONFIG_REGISTRY = "https://registry.npmjs.org/"
   NPM_FLAGS = "--no-audit --no-fund"
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200

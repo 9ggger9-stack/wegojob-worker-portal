@@ -1,21 +1,22 @@
-import React,{useEffect,useState}from'react';
-import{loadProgress}from'../services/progressStore.js';
+import React from 'react';
+import { loadProgress } from '../services/progressStore';
 
 const docs=[
- ['personal','👤','Kwestionariusz osobowy + RODO','Dane osobowe, adres, kontakt i rozmiary.'],
+ ['personal','👤','Kwestionariusz osobowy','Dane osobowe, adres, RODO i rozmiary.'],
  ['bank','🏦','Konto bankowe','Dyspozycja przelewu wynagrodzenia.'],
- ['zus','🧾','Oświadczenie ZUS i podatek','Status zatrudnienia, nauki, ubezpieczeń i wniosek podatkowy.'],
- ['confidentiality','🔒','Oświadczenie o poufności','Pełne zobowiązanie do zachowania poufności.'],
- ['ppk','📉','Rezygnacja z PPK','Deklaracja rezygnacji z dokonywania wpłat.'],
- ['photos','📷','Zdjęcia dokumentów','Paszport, karta pobytu lub dowód oraz PESEL.'],
- ['checklist','✅','Checklista dokumentów','Kontrola kompletności dokumentacji pracownika.'],
+ ['zus','🧾','Oświadczenie do celów ZUS','Status zatrudnienia, nauki i ubezpieczeń.'],
+ ['confidentiality','🔒','Oświadczenie o poufności','Zobowiązanie do zachowania poufności.'],
+ ['ppk','📉','Rezygnacja z PPK','Deklaracja rezygnacji z wpłat.'],
+ ['photos','📷','Zdjęcia dokumentów','Paszport, karta pobytu/dowód i PESEL.'],
+ ['checklist','✅','Checklista dokumentów','Kontrola kompletności teczki pracownika.'],
 ];
 
 export default function Onboarding({openPage}){
- const[progress,setProgress]=useState(loadProgress());
- useEffect(()=>{const refresh=()=>setProgress(loadProgress());window.addEventListener('wegojob-progress-updated',refresh);return()=>window.removeEventListener('wegojob-progress-updated',refresh)},[]);
+ const p=loadProgress();
  return <>
-  <section className="hero compact"><p className="eyebrow">ONBOARDING</p><h1>Pakiet dokumentów pracownika</h1><p>Wypełniaj dokumenty po kolei. Po podpisaniu dane automatycznie trafiają do Make i Google Sheets.</p></section>
-  <div className="steps-list">{docs.map(([id,icon,title,desc],index)=>{const done=!!progress[id]?.completed;const previousDone=index===0||!!progress[docs[index-1][0]]?.completed;return <button className={`step-card ${done?'done':''} ${!previousDone?'locked':''}`} key={id} disabled={!previousDone} onClick={()=>openPage(id)}><span className="step-number">{done?'✓':index+1}</span><span className="menu-icon">{icon}</span><span><strong>{title}</strong><small>{done?'Dokument podpisany i wysłany':!previousDone?'Najpierw ukończ poprzedni krok':desc}</small></span><span className="arrow">›</span></button>})}</div>
+  <section className="hero compact"><p className="eyebrow">ONBOARDING</p><h1>Pakiet dokumentów pracownika</h1><p>Najpierw wypełnij kwestionariusz. Dane zostaną użyte w kolejnych dokumentach.</p></section>
+  <div className="menu-grid">{docs.map(([id,icon,title,desc])=><button className="menu-card" key={id} onClick={()=>openPage(id)}>
+   <span className="menu-icon">{icon}</span><span><strong>{title}</strong><small>{desc}</small></span><span className="completion">{p[id]?'✓':'›'}</span>
+  </button>)}</div>
  </>;
 }
