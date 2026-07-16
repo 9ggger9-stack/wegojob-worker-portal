@@ -8,3 +8,22 @@ Zmiany:
 - zachowano odzież i wniosek urlopowy.
 
 Publikacja: podmień pliki w lokalnym repozytorium, Commit to main, Push origin. Netlify zaktualizuje stronę automatycznie.
+
+## Integracja Make + Google Sheets
+Portal wysyła każdy podpisany dokument do webhooka Make jako JSON.
+
+Najważniejsze pola webhooka:
+- `submittedAt`
+- `documentType`
+- `employee.fullName`
+- `employee.pesel`
+- `employee.passportNumber`
+- `employee.phone`
+- `employee.email`
+- `employee.project`
+- `employee.bankAccount`
+- `status`
+- `data`
+- `signature`
+
+W Make po odebraniu pierwszego testu dodaj Google Sheets → Add a Row i przypisz pola do kolumn.
