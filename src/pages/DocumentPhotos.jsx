@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { submitDocument } from '../services/api';
+import { sendToMake } from '../services/api.js';
 import { loadOnboarding } from '../services/onboardingStore';
 import { markCompleted } from '../services/progressStore';
 
@@ -93,7 +93,7 @@ export default function DocumentPhotos() {
         const file = files[doc.id];
         if (!file) continue;
 
-        await submitDocument({
+        await sendToMake({
           source: 'WeGoJob Portal',
           documentType: 'identity_file',
           fileType: doc.id,

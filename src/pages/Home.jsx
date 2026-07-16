@@ -1,6 +1,6 @@
 import React from 'react';
 const items = [
-  ['onboarding','📁','Dokumenty zatrudnienia','Kwestionariusz, bank, ZUS, poufność, PPK, zdjęcia dokumentów i checklista.'],
+  ['onboarding','📁','Dokumenty zatrudnienia','Kwestionariusz, bank, ZUS, poufność, PPK i checklista.'],
   ['clothing','👕','Odzież i wyposażenie','Wydanie, zwrot i podpis dokumentu.'],
   ['vacation','🏖️','Wniosek o urlop','Wpisz daty i podpisz wniosek.'],
 ];

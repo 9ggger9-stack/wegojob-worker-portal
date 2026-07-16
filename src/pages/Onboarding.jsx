@@ -7,6 +7,7 @@ const docs=[
  ['zus','🧾','Oświadczenie ZUS i podatek','Status zatrudnienia, nauki, ubezpieczeń i wniosek podatkowy.'],
  ['confidentiality','🔒','Oświadczenie o poufności','Pełne zobowiązanie do zachowania poufności.'],
  ['ppk','📉','Rezygnacja z PPK','Deklaracja rezygnacji z dokonywania wpłat.'],
+ ['photos','📷','Zdjęcia dokumentów','Paszport, karta pobytu lub dowód oraz PESEL.'],
  ['checklist','✅','Checklista dokumentów','Kontrola kompletności dokumentacji pracownika.'],
 ];
 
