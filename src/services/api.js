@@ -1,4 +1,4 @@
-const WEBHOOK_URL = 'https://hook.eu1.make.com/9etmr2ajqqi1jea3jgz0ow1ctlbgjiw2';
+const WEBHOOK_URL = 'https://hook.eu1.make.com/m5gvdetctqc4h941yu6fdskfcourb4ms';
 
 export async function sendToMake(payload) {
   const response = await fetch(WEBHOOK_URL, {

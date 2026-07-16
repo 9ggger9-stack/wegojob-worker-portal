@@ -27,3 +27,13 @@ Najważniejsze pola webhooka:
 - `signature`
 
 W Make po odebraniu pierwszego testu dodaj Google Sheets → Add a Row i przypisz pola do kolumn.
+
+
+## Wersja v3 — zdjęcia dokumentów
+Dodano przesyłanie z telefonu:
+- paszportu,
+- karty pobytu lub dowodu osobistego,
+- dokumentu PESEL,
+- decyzji / innego dokumentu legalizacyjnego.
+
+Zdjęcia są zmniejszane i kompresowane w przeglądarce, a następnie wysyłane do Make jako Base64.
