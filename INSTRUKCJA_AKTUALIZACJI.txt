@@ -1,32 +1,23 @@
-WEGOJOB PORTAL V3 — CZYSTY PROJEKT
+WEGOJOB PORTAL V3 — FINAL CLEAN
 
-Ten pakiet jest przygotowany do GitHub Desktop i Netlify.
+Це повністю очищена папка для GitHub і Netlify.
 
-W środku są:
-- src — kod portalu,
-- package.json,
-- index.html,
-- netlify.toml,
-- .npmrc,
-- .nvmrc,
-- .gitignore.
+ВАЖЛИВО:
+- package-lock.json спеціально видалено, бо в старому файлі були внутрішні адреси OpenAI.
+- node_modules і dist відсутні.
+- .npmrc та netlify.toml примусово використовують https://registry.npmjs.org/
+- package-lock.json додано до .gitignore, щоб він випадково не потрапив у GitHub повторно.
 
-Nie ma:
-- node_modules,
-- dist.
-
-AKTUALIZACJA REPOZYTORIUM:
+ЯК ЗАМІНИТИ ПРОЄКТ:
 1. GitHub Desktop → Repository → Show in Explorer.
-2. W folderze repozytorium usuń wszystkie stare pliki, ale nie usuwaj ukrytego folderu .git.
-3. Skopiuj do niego WYŁĄCZNIE zawartość tej rozpakowanej paczki.
-4. Wróć do GitHub Desktop.
-5. Summary: Clean portal v3.
-6. Commit to main.
-7. Push origin.
-8. Netlify automatycznie uruchomi nowy deploy.
+2. У папці репозиторію видали всі звичайні файли й папки.
+3. НЕ видаляй приховану папку .git.
+4. Скопіюй УВЕСЬ ВМІСТ цієї папки в репозиторій.
+5. Відкрий GitHub Desktop.
+6. Summary: Final clean portal v3
+7. Commit to main.
+8. Push origin.
+9. В Netlify відкрий golden-biscuit-594504 → Deploys.
+10. Дочекайся статусу Published.
 
-WAŻNE:
-- Nie kopiuj node_modules.
-- Nie kopiuj dist.
-- Nie uruchamiaj npm install wewnątrz folderu przed wysłaniem do GitHub, jeśli nie jest to potrzebne.
-- Główny portal Netlify: golden-biscuit-594504.
+НЕ запускай npm install перед Push. Це не потрібно.
