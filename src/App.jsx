@@ -5,7 +5,7 @@ import Onboarding from './pages/Onboarding';
 import PersonalQuestionnaire from './pages/PersonalQuestionnaire';
 import BankAccount from './pages/BankAccount';
 import Confidentiality from './pages/Confidentiality';
-import ZusStatement from './pages/ZusStatement';
+import Zus from './pages/Zus';
 import PpkResignation from './pages/PpkResignation';
 import DocumentChecklist from './pages/DocumentChecklist';
 import DocumentPhotos from './pages/DocumentPhotos';
@@ -37,7 +37,7 @@ export default function App(){
  }
  const content={
   home:<Home worker={worker} openPage={openPage}/>,onboarding:<Onboarding openPage={openPage}/>,
-  personal:<PersonalQuestionnaire/>,bank:<BankAccount/>,zus:<ZusStatement/>,confidentiality:<Confidentiality/>,
+  personal:<PersonalQuestionnaire/>,bank:<BankAccount/>,zus: <Zus />,confidentiality:<Confidentiality/>,
   ppk:<PpkResignation/>,photos:<DocumentPhotos/>,checklist:<DocumentChecklist/>,clothing:<Clothing worker={worker}/>,
   vacation:<Vacation worker={worker}/>,contact:<Contact worker={worker}/>,coordinator:<CoordinatorPanel/>
  }[page];
