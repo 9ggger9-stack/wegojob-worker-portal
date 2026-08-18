@@ -39,14 +39,16 @@ function createSafeFileName(fullName, documentType) {
     .replace(/[\\/:*?"<>|]/g, '')
     .replace(/\s+/g, ' ');
 
-  const safeDocumentType = String(documentType || 'Dokument')
-    .trim()
-    .replace(/[\\/:*?"<>|]/g, '')
-    .replace(/\s+/g, ' ');
+  let documentName = 'Dokument';
 
-  return `${safeName} - ${safeDocumentType}.pdf`;
+  if (documentType === 'clothing_return') {
+    documentName = 'Zwrot odziezy i wyposazenia';
+  } else if (documentType === 'clothing') {
+    documentName = 'Otrzymanie odziezy i wyposazenia';
+  }
+
+  return `${safeName} - ${documentName}.pdf`;
 }
-
 export async function submitDocument(payload) {
   const controller = new AbortController();
   const timeout = setTimeout(() => controller.abort(), 45000);
