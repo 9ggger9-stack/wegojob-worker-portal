@@ -85,10 +85,9 @@ export async function submitDocument(payload) {
       'submittedAt',
       payload.submittedAt || new Date().toISOString()
     );
-    formData.append(
-      'documentType',
-      payload.documentType || ''
-    );
+    formData.append('documentType', payload.documentType || '');
+formData.append('submissionId', payload.submissionId || '');
+formData.append('status', payload.status || 'PODPISANO');
     formData.append('status', payload.status || 'PODPISANO');
 
     // Дані працівника
