@@ -10,7 +10,14 @@ export async function submitPortalDocument({
   extra = {},
 }) {
   const stored = loadOnboarding();
+const submissionKey = `wegojob_pending_${type}`;
 
+let submissionId = sessionStorage.getItem(submissionKey);
+
+if (!submissionId) {
+  submissionId = crypto.randomUUID();
+  sessionStorage.setItem(submissionKey, submissionId);
+}
   const fullName =
     data.fullName ||
     data.name ||
@@ -19,7 +26,7 @@ export async function submitPortalDocument({
       data.surname || stored.surname || ''
     }`.trim();
 
-  const payload = {
+  const payload = {submissionId,
     source: 'WeGoJob Portal',
     submittedAt: new Date().toISOString(),
     documentType: type,
@@ -48,6 +55,8 @@ export async function submitPortalDocument({
   };
 
   await sendToMake(payload);
+
+sessionStorage.removeItem(submissionKey);
 
   saveOnboarding(data);
   markCompleted(type);
